@@ -15,4 +15,8 @@ export class UserService {
         const user = await new this.userModel(userDto);
         return user.save();
     }
+
+    findOne(username: string): Promise<User> {
+        return this.userModel.findOne({ username }).exec();
+    }
 }
