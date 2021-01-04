@@ -5,10 +5,10 @@ import { User } from './user.schema';
 
 @Controller('/api/user')
 export class UserController {
-	constructor(private readonly userService: UserService) {}
+    constructor(private readonly userService: UserService) {}
 
-	@Post()
-	createUser(@Body() userDto: CreateUserDto): Promise<User> {
-		return this.userService.createUser(userDto);
-	}
+    @Post()
+    createUser(@Body() userDto: CreateUserDto): Promise<User> {
+        return this.userService.createUser(userDto);
+    }
 }
