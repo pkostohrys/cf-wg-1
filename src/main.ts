@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { BestLogger } from './logger/custom.logger';
+import { useExpress } from './express';
 
 const APP_NAME = 'cf-wg-1';
 
@@ -19,6 +20,8 @@ async function bootstrap() {
     app.useLogger(new BestLogger());
 
     app.enableShutdownHooks();
+
+    useExpress(app.getHttpAdapter() as any);
 
     await app.startAllMicroservicesAsync();
     await app.listen(3000);
