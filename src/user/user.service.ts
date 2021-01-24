@@ -19,4 +19,8 @@ export class UserService {
     findOne(username: string): Promise<User> {
         return this.userModel.findOne({ username }).exec();
     }
+
+    onModuleDestroy() {
+        console.log('User module destroyed');
+    }
 }

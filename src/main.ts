@@ -18,6 +18,8 @@ async function bootstrap() {
 
     app.useLogger(new BestLogger());
 
+    app.enableShutdownHooks();
+
     await app.startAllMicroservicesAsync();
     await app.listen(3000);
 }

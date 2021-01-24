@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import configuration from './config/configuration';
 import { LoggerModule } from './logger/logger.module';
+import { AppLifecycleEvents } from './app.events';
 
 @Module({
     imports: [
@@ -26,5 +27,6 @@ import { LoggerModule } from './logger/logger.module';
         AuthModule,
         LoggerModule,
     ],
+    providers: [AppLifecycleEvents],
 })
 export class AppModule {}
